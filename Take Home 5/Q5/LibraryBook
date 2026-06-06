@@ -1,0 +1,58 @@
+package Q5;
+
+public class LibraryBook {
+
+    String bookId;
+    String title;
+    String author;
+    int totalCopies;
+    int borrowedCopies;
+
+    public LibraryBook() {
+        this.bookId = "UNKNOWN";
+        this.title = "Untitled";
+        this.author = "Anonymous";
+        this.totalCopies = 0;
+        this.borrowedCopies = 0;
+    }
+
+    public LibraryBook(String bookId, String title, String author, int totalCopies) {
+        this.bookId = bookId;
+        this.title = title;
+        this.author = author;
+        this.totalCopies = totalCopies;
+        this.borrowedCopies = 0;
+    }
+
+    public String borrowBook(int count) {
+        int available = totalCopies - borrowedCopies;
+        if (count <= available) {
+            borrowedCopies += count;
+            return "Successfully borrowed " + count + " copy/copies. Remaining: " + (available - count);
+        } else {
+            return "Only " + available + " copy/copies available.";
+        }
+    }
+
+    public void returnBook(int count) {
+        if (count <= borrowedCopies) {
+            borrowedCopies -= count;
+            System.out.println("Successfully returned " + count + " copy/copies.");
+        } else {
+            System.out.println("Return count exceeds borrowed copies.");
+        }
+    }
+
+    public int getAvailableCopies() {
+        return totalCopies - borrowedCopies;
+    }
+
+    public String getBookInfo(String shelf) {
+        return "ID: " + bookId + ", Title: " + title + ", Author: " + author + 
+               ", Total: " + totalCopies + ", Borrowed: " + borrowedCopies + 
+               ", Shelf: " + shelf;
+    }
+
+} 
+
+    
