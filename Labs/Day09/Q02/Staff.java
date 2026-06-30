@@ -21,7 +21,11 @@ public class Staff{
     public int getsalary(){
         return basicSalary;
     }
-    public void getsalary(int basicSalary){
-        this
+    public void setsalary(int basicSalary){
+        this.basicSalary = basicSalary;
+    }
+
+    public int calculateSalary(){
+        return basicSalary;
     }
 }
